@@ -1,18 +1,35 @@
 import { Tag } from '../Tag'
-import { Card, Description, Title } from './styles'
+import { Card, Description, Info, Title } from './styles'
 
-export const Product = () => {
+interface IProduct {
+  title: string
+  category: string
+  system: string
+  description: string
+  infos: string[]
+  image: string
+}
+
+export const Product = ({
+  title,
+  category,
+  system,
+  description,
+  infos,
+  image
+}: IProduct) => {
   return (
     <Card>
-      <img src="//placehold.it/222x250" />
-      <Title>Nome</Title>
-      <Tag>Categoria</Tag>
-      <Tag>Windows</Tag>
-      <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-        repellat tempore, et impedit pariatur saepe facere delectus qui sapient
-        error iure distinctio.
-      </Description>
+      <img src={image} alt={title} />
+      <Info>
+        {infos.map((info) => (
+          <Tag key={info}>{info}</Tag>
+        ))}
+      </Info>
+      <Title>{title}</Title>
+      <Tag>{category}</Tag>
+      <Tag>{system}</Tag>
+      <Description>{description}</Description>
     </Card>
   )
 }

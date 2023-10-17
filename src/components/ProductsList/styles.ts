@@ -1,10 +1,20 @@
 import { styled } from 'styled-components'
-// import { Colors } from '../../styles'
+import { Colors } from '../../styles'
 
-// import { IList } from '.'
+import { IList } from '.'
+import { Card } from '../Product/styles'
 
-export const ProductsListContent = styled.section`
+export const ProductsListContent = styled.section<
+  Omit<IList, 'title' | 'games'>
+>`
   padding: 32px 0;
+  background-color: ${(props) =>
+    props.background === 'grayDark' ? Colors.grayDark : Colors.gray};
+
+  ${Card} {
+    background-color: ${(props) =>
+      props.background === 'gray' ? Colors.grayDark : Colors.gray};
+  }
 `
 
 export const List = styled.ul`

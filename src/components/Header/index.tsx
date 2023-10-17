@@ -1,9 +1,11 @@
+import { Link, useNavigate } from 'react-router-dom'
 import { HeaderContent, LinkCart, LinkItem, Links } from './styles'
 
 import logo from '../../assets/images/logo.svg'
 import cart from '../../assets/images/carrinho.svg'
 
 export const Header = () => {
+  // const navigate = useNavigate()
   return (
     <HeaderContent>
       <div>
@@ -11,13 +13,13 @@ export const Header = () => {
         <nav>
           <Links>
             <LinkItem>
-              <a href="#">Categorias</a>
+              <Link to="/categories">Categorias</Link>
             </LinkItem>
             <LinkItem>
-              <a href="#">Novidades</a>
+              <Link to="/news">Novidades</Link>
             </LinkItem>
             <LinkItem>
-              <a href="#">Promoções</a>
+              <Link to="/promotions">Promoções</Link>
             </LinkItem>
           </Links>
         </nav>
